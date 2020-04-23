@@ -1,0 +1,23 @@
+.FontAcc{
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.imgLogo{
+  width: 50%;
+}
+
+.Slogan{
+  font-size: 2rem;
+  color: white;
+  margin-bottom: 20%;
+}
+
+.ButtonPlay{
+  font-size: 2.5rem;
+  margin: 3%;
+  padding: 2%;
+  border: solid red;
+  background-color: white;
+}
