@@ -10,9 +10,8 @@ class PlayerStats extends React.Component {
 
   render() {
     return (
-      <body>
-        <div>
-          <ul>
+        <div className="playerstats__container">
+          <ul className="stats__list">
             <li>Nom : {this.props.heroes[0].name}</li>
             <li>Intelligence : {this.props.heroes[0].powerstats.intelligence}</li>
             <li>Force : {this.props.heroes[0].powerstats.strength}</li>
@@ -20,7 +19,6 @@ class PlayerStats extends React.Component {
             <li>Puissance : {this.props.heroes[0].powerstats.power}</li>
           </ul>
         </div>
-      </body>
     );
   }
 }

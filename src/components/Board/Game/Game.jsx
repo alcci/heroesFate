@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Player from './Player/Player';
-import './Game.css';
+import './game.css';
 
 const weapons = ['rock', 'paper', 'scissors'];
 

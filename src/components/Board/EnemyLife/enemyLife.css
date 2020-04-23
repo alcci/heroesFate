@@ -1,0 +1,15 @@
+.life__container {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.life__bar {
+  /* background-image: url('https://zupimages.net/up/20/17/nnif.png');
+  background-size: cover; */
+  background-color: red;
+  border-radius: 50%;
+  padding: 20px;
+}

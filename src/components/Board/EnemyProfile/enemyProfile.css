@@ -1,0 +1,9 @@
+.profile__container {
+  display: flex;
+  align-items: baseline;
+}
+
+.profile__img {
+  border-radius: 50%;
+  height: 200px;
+}

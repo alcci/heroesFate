@@ -1,4 +1,5 @@
 import React from 'react';
+import './enemyProfile.css'
 
 class EnemyProfile extends React.Component {
   constructor(props) {
@@ -8,10 +9,8 @@ class EnemyProfile extends React.Component {
 
   render() {
     return (
-      <div>
-        <img src={this.props.ennemy.image.url} alt='' />
-        <p>Vie = {this.props.ennemy.powerstats.durability * 10}</p>
-        <p>Defense = {this.props.ennemy.powerstats.power}</p>
+      <div className="profile__container">
+        <img className="profile__img" src={this.props.ennemy.image.url} alt='' />
       </div>
     )
   }

@@ -3,13 +3,14 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
+  NavLink,
 } from 'react-router-dom';
-import './App.css';
 import Axios from 'axios';
+import './App.css'
 
-import Board from './components/Board';
-import Home from './components/Home';
+import Board from './components/Board/Board';
+import Home from './components/Home/Home';
+import Instructions from './components/Instructions/Instructions'
 
 class App extends React.Component {
   constructor(props) {
@@ -44,25 +45,37 @@ class App extends React.Component {
   render() {
     const heroes = this.state.heroes;
     return (
+      <div className="page__container">
 
-      <Router>
-        <div>
-          <Link exact to="/">Accueil</Link>
-          <Link to="/Board" className="buttonPlay">Play Now !</Link>
+          <Router>
+            <div>
+              <nav>
+                <ul className="navbar">
+                  <li><NavLink activeClassName="active" exact to="/">Home</NavLink></li>
+                  <li><NavLink activeClassName="active" to="/instructions">Instructions</NavLink></li>
+                  <li><NavLink activeClassName="active" to="/choices">Play !</NavLink></li>
+                </ul>
+              </nav>
 
-          <Switch>
+              <Switch>
 
-            <Route exact path="/">
-              <Home />
-            </Route>
+                <Route exact path="/">
+                  <Home />
+                </Route>
 
-            <Route path="/Board">
-              {heroes.length > 0 && <Board heroes={heroes} />}
-            </Route>
+                <Route path="/instructions">
+                  <Instructions />
+                </Route>
 
-          </Switch>
-        </div>
-      </Router>
+                <Route path="/choices">
+                  {heroes.length > 0 && <Board heroes={heroes} />}
+                </Route>
+
+              </Switch>
+            </div>
+          </Router>
+
+      </div>
     );
   }
 }
