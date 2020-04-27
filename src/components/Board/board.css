@@ -25,7 +25,6 @@
   align-items: center;
   background-image: url('https://zupimages.net/up/20/16/a3ce.jpg');
   background-size: 100%;
-  color: yellow;
 }
 
 .interface__player {
@@ -33,4 +32,49 @@
   height: 200px;
   background-color: blueviolet;
   justify-content: space-around;
+}
+
+.life__container {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.life__bar {
+  /* background-image: url('https://zupimages.net/up/20/17/nnif.png');
+  background-size: cover; */
+  background-color: red;
+  border-radius: 50%;
+  padding: 20px;
+}
+
+.profile__container {
+  display: flex;
+  align-items: baseline;
+}
+
+.profile__img {
+  border-radius: 50%;
+  height: 200px;
+}
+
+.playerstats__container {
+  background-color: whitesmoke;
+  height: 200px;
+  width: 400px;
+  margin: 0px;
+  padding: 0px;
+  justify-content: center;
+  align-items: center;
+}
+
+.stats__list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
 }

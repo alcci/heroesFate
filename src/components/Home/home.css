@@ -5,13 +5,13 @@
   align-items: center;
 }
 .imgLogo{
-  width: 50%;
+  width: 30%;
 }
 
 .Slogan{
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: white;
-  margin-bottom: 20%;
+  /* margin-bottom: 20%; */
 }
 
 .ButtonPlay{

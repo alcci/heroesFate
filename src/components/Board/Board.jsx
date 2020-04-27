@@ -14,21 +14,9 @@ class Board extends React.Component {
 
   render() {
     return (
-      <div className="board__container">
-        <div className="interface__enemy">
-          <EnemyLife className ="test" ennemy={this.props.heroes[0]}/>
-          <EnemyProfile ennemy={this.props.heroes[0]}/>
-          <PlayerStats heroes={this.props.heroes} />
+        <div>
+          <Game venom={this.props.heroes[0]} spidey={this.props.heroes[1]} />
         </div>
-        <div className="interface__gameplay">
-          <p> This is where the gameplay will happen</p>
-        </div>
-        <div className="interface__player">
-          <EnemyLife className ="test" ennemy={this.props.heroes[0]}/>
-          <EnemyProfile ennemy={this.props.heroes[0]}/>
-          <PlayerStats heroes={this.props.heroes} />
-        </div>
-      </div>
     )
   }
 }

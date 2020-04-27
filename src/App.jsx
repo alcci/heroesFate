@@ -11,6 +11,7 @@ import './App.css'
 import Board from './components/Board/Board';
 import Home from './components/Home/Home';
 import Instructions from './components/Instructions/Instructions'
+import Game from './components/Board/Game/Game'
 
 class App extends React.Component {
   constructor(props) {
@@ -44,7 +45,7 @@ class App extends React.Component {
 
   render() {
     const heroes = this.state.heroes;
-    return (
+     return (
       <div className="page__container">
 
           <Router>
@@ -68,7 +69,7 @@ class App extends React.Component {
                 </Route>
 
                 <Route path="/choices">
-                  {heroes.length > 0 && <Board heroes={heroes} />}
+                  {heroes.length > 1 && <Board heroes={heroes} />}
                 </Route>
 
               </Switch>
@@ -76,7 +77,7 @@ class App extends React.Component {
           </Router>
 
       </div>
-    );
+    ); 
   }
 }
 

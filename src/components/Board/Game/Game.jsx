@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import Player from './Player/Player';
 import './game.css';
 
+import EnemyProfile from '../EnemyProfile/EnemyProfile'
+import EnemyLife from '../EnemyLife/EnemyLife';
+import PlayerStats from '../PlayerStats/PlayerStats';
+
 const weapons = ['rock', 'paper', 'scissors'];
 
 class Game extends Component {
@@ -12,6 +16,10 @@ class Game extends Component {
       playerTwo: weapons[0],
       winner: '',
       interface: 'button',
+      vilainLife: 840,
+      vilainShield: 500,
+      heroLife: 600,
+      heroShield: 500,
     };
   }
 
@@ -55,9 +63,9 @@ class Game extends Component {
         || (playerOne === 'scissors' && playerTwo === 'paper')
         || (playerOne === 'paper' && playerTwo === 'rock')
       ) {
-        return 'Hero Wins!';
+        return <p className="resultText">You Win !</p>;
       }
-      return 'Ennemi Wins!';
+      return <p className="resultText">You Lose !</p>;
     };
 
     selecteWeapon = (weapon) => {
@@ -76,31 +84,85 @@ class Game extends Component {
 
     render() {
       const { playerOne, playerTwo, winner } = this.state;
+      const vilain = this.props.venom
+      const superhero = this.props.spidey
       return (
-        <>
-          <div className={this.state.interface === 'button' ? 'affichageON' : 'affichageOFF'} onClick={this.transition}>
-            <button className="buttonad" type="button">Attack</button>
-            <button className="buttonad" type="button">Defence</button>
+        <div>
+          <div className="interface__player">
+            <div className="life__container">
+              <p className="life__bar">{this.state.vilainLife}</p>
+              <p className="life__bar">{this.state.vilainShield}</p>
+            </div>
+            <div className="profile__container">
+              <img className="profile__img" src={vilain.image.url} alt='' />
+            </div>
+            <div className="playerstats__container">
+              <h2>Nom : {vilain.name}</h2>
+              <ul className="stats__list">
+                <li>Intelligence : {vilain.powerstats.intelligence}</li>
+                <li>Force : {vilain.powerstats.strength}</li>
+                <li>Vitesse : {vilain.powerstats.speed}</li>
+                <li>Puissance : {vilain.powerstats.power}</li>
+              </ul>
+            </div>
           </div>
-          <div className={this.state.interface === 'choix' ? 'affichageON' : 'affichageOFF'}>
+
+          <div className="interface__gameplay">
+            {this.state.interface === 'button' 
+            ? 
             <div>
-              <input type="image" src="https://zupimages.net/up/20/16/vmt5.jpg" className="weaponButton" onClick={() => this.selecteWeapon('rock')} alt="" />
-              <input type="image" src="https://zupimages.net/up/20/16/vjv7.jpg" className="weaponButton" onClick={() => this.selecteWeapon('paper')} alt="" />
-              <input type="image" src="https://zupimages.net/up/20/16/dfvh.jpg" className="weaponButton" onClick={() => this.selecteWeapon('scissors')} alt="" />
+              <input type="button" className="styled" onClick={this.transition} value="Attack !"/>
+              <input type="button" className="styled" onClick={this.transition} value="Defence !"/>
             </div>
-            <button type="button" className="buttonad" onClick={this.startGame}>Start</button>
-          </div>
-          <div className={this.state.interface === 'resultats' ? 'affichageON' : 'affichageOFF'}>
-            <div className="winner">
-              <Player weapon={playerTwo} />
-              {winner ? this.selectWinner() : null}
-              <Player weapon={playerOne} />
-            </div>
+            :
+             <> </> }
+
+            {this.state.interface === 'choix' 
+            ? 
             <div>
-              <button type="button" className="buttonad" onClick={this.none}>Continue</button>
+              <div>
+                <input type="image" src="https://zupimages.net/up/20/16/vmt5.jpg" className="weaponButton" onClick={() => this.selecteWeapon('rock')} alt="" />
+                <input type="image" src="https://zupimages.net/up/20/16/vjv7.jpg" className="weaponButton" onClick={() => this.selecteWeapon('paper')} alt="" />
+                <input type="image" src="https://zupimages.net/up/20/16/dfvh.jpg" className="weaponButton" onClick={() => this.selecteWeapon('scissors')} alt="" />
+              </div>
+              <input type="button" className="styled" onClick={this.startGame} value="Let's Fight !"/>
+            </div>
+            :
+             <> </> }
+
+            {this.state.interface === 'resultats' 
+            ? 
+            <div>
+              <div className="winner">
+                <Player weapon={playerTwo} />
+                {winner ? this.selectWinner() : null}
+                <Player weapon={playerOne} />
+              </div>
+              <input type="button" className="styled" onClick={this.none} value="Continue" />
+            </div>
+            :
+             <> </> }
+          </div>
+
+          <div className="interface__player">
+            <div className="life__container">
+              <p className="life__bar">{this.state.heroLife}</p>
+              <p className="life__bar">{this.state.heroLife}</p>
+            </div>
+            <div className="profile__container">
+              <img className="profile__img" src={superhero.image.url} alt='' />
+            </div>
+            <div className="playerstats__container">
+              <h2>Nom : {superhero.name}</h2>
+              <ul className="stats__list">
+                <li>Intelligence : {superhero.powerstats.intelligence}</li>
+                <li>Force : {superhero.powerstats.strength}</li>
+                <li>Vitesse : {superhero.powerstats.speed}</li>
+                <li>Puissance : {superhero.powerstats.power}</li>
+              </ul>
             </div>
           </div>
-        </>
+        </div>
       );
     }
 }
